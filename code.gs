@@ -1,24 +1,33 @@
 function doGet() {
-  let html = HtmlService.createHtmlOutputFromFile("index");
-  return html;
+
+const obj = sheetData();
+    Logger.log(obj)
+    const output = JSON.stringify(obj)
+    return ContentService.createTextOutput(output).setMimeType(ContentService.MimeType.JSON)
+
 
 }
 
-function insertAppointment(){
-  let spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
-  let appointmentSheet = spreadSheet.getSheetByName("availabilities");
-const data = appointmentSheet.getRange("A2:F49").getValues()
-  const timezone = SpreadsheetApp.getActive().getSpreadsheetTimeZone();
-    const cleanData = data.map(row => {
-    const day = row[0];
-    const start_time = Utilities.formatDate(row[1], timezone, "HH:mm");
-    const end_time = Utilities.formatDate(row[2], timezone, "HH:mm");
-    const slots = parseInt(row[3]);
-    const filled_slots = parseInt(row[4])
-    const remains = parseInt(row[5]);
-    
-    return {day, start_time, end_time, slots , filled_slots , remains };
-  });
-  Logger.log(cleanData)
+function sheetData () {
+    const id = '1teeaPDL61fx5ZsgBuNdfIvso61REODYGhZyt_hEy4T0';
+    const ss = SpreadsheetApp.openById(id);
+    const sheet = ss.getSheetByName("availabilities");
+    const data = sheet.getDataRange().getValues();
+    const headings = data[0];
+    const rows = data.slice(1)
+return(makeObj(rows , headings));
+}
 
+
+function makeObj(rows, headings){
+return rows.map(function(row){
+    const tempObj = {};
+    headings.forEach((heading , index) => {
+        heading = heading.toLowerCase();
+
+        tempObj[heading] = row[index];
+    });
+    return tempObj;
+})
+  
 }

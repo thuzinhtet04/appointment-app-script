@@ -15,12 +15,13 @@ async function getAvailableDates() {
   for (let i = 1; i <= 14; i++) {
     const date = new Date()
     date.setDate(today.getDate() + i)
+    
 
     // Randomly exclude some dates (simulating fully booked days)
     // In a real app, this would come from your backend
-    if (![2, 5, 8, 11].includes(i)) {
+    if () {
       availableDates.push(date)
-    }
+    
   }
 
   return availableDates
