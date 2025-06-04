@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Booking</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Book an Appointment</h1>
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>Appointment Details</h2>
+        <p>Please fill in your information and select an available date and time.</p>
+      </div>
+      
+      <form id="appointmentForm">
+        <div class="card-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="required">*</span></label>
+              <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="title">Appointment Title <span class="required">*</span></label>
+            <input type="text" id="title" placeholder="Enter appointment title" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Provide any additional details" rows="3"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date <span class="required">*</span></label>
+              <div class="date-picker-container">
+                <input type="text" id="datePicker" placeholder="Select a date" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Time <span class="required">*</span></label>
+              <div id="timeSlots" class="time-slots">
+                <p id="timeMessage">Please select a date first</p>
+                <!-- Time slots will be populated here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button type="submit" id="submitButton">Book Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <div class="toast-content">
+      <p id="toastMessage"></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="./appointment-service.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
