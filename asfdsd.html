@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="output">asdf</div>
+    
+  <script>
+    const url = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjmJ1DNlY-akhz4CKcaH5KdwcNF0RlEN7OJ8t5oPukLiCQi8QkBWaBFJsYH3UlF82mr0ZS8mXDJifQbO5dokfaEF1jUqAGeKnK-UhAN-rfnr7ouYtF2iQ1rksWDbWtkMX4xiap5GF5g1N13locgY4Y4BkUWLsMBIa7husQA3HRM4oPVZ74Ceo5H8CU7iXgxyVD5rxmlZPiJvHJSdC_EHizmnIFZ3idHw5HOeudmwNatppOmChbRjs_Pe9fTHKPzGKKdletgOEK9UM421A90YjgFN9Rfxw&lib=MemmIRx4lTnEyf1hZHufiqWCRMPvxsUvo"
+    const output = document.querySelector('#output')
+    output.addEventListener("click" , function(){
+      console.log("cliadk")
+      fetch(url).then(res => res.json()
+      ).then(data => console.log(data))
+   
+    })
+  
+  </script>
+</body>
+</html>

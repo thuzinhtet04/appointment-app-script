@@ -19,13 +19,10 @@ async function getAvailableDates() {
 
     // Randomly exclude some dates (simulating fully booked days)
     // In a real app, this would come from your backend
-    if () {
-      availableDates.push(date)
-    
-  }
+ 
 
   return availableDates
-}
+}}
 
 /**
  * Get available time slots for a specific date
